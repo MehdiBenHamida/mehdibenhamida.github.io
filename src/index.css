@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 214 88% 40%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 53 90% 60%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.5rem;
+
+    --python-blue: 214 88% 40%;
+    --python-yellow: 53 90% 60%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 214 88% 40%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 53 90% 60%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+.section-heading {
+  @apply text-2xl md:text-3xl font-bold mb-6 relative;
+}
+
+.section-heading::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-12 h-1 bg-[#366B98] mt-2 rounded;
+}
+
+.link-underline {
+  @apply relative after:absolute after:w-full after:scale-x-0 after:h-0.5 
+         after:bottom-0 after:left-0 after:bg-[#FFD343] after:origin-bottom-right 
+         after:transition-transform after:duration-300 hover:after:scale-x-100 
+         hover:after:origin-bottom-left;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-[#366B98] to-[#FFD343] bg-clip-text text-transparent;
+}
+
+.card-hover {
+  @apply transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-[#366B98]/10 
+         hover:-translate-y-1;
+}
+
+.neo-blur {
+  @apply backdrop-blur-xl bg-black/30 border border-white/10;
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%);
+    transform: translate(-0.05rem, 0);
+  }
+  10% {
+    clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+    transform: translate(0.05rem, 0);
+  }
+  20% {
+    clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+    transform: translate(-0.05rem, 0);
+  }
+  30% {
+    clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+    transform: translate(0.05rem, 0);
+  }
+  40% {
+    clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+    transform: translate(-0.05rem, 0);
+  }
+  50% {
+    clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+    transform: translate(0.05rem, 0);
+  }
+  60% {
+    clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+    transform: translate(-0.05rem, 0);
+  }
+  70% {
+    clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+    transform: translate(0.05rem, 0);
+  }
+  80% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transform: translate(-0.05rem, 0);
+  }
+  90% {
+    clip-path: polygon(0 90%, 100% 90%, 100% 90%, 0 90%);
+    transform: translate(0.05rem, 0);
+  }
+  100% {
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+    transform: translate(0, 0);
+  }
+}
+
+.glitch-effect {
+  position: relative;
+}
+
+.glitch-effect::before,
+.glitch-effect::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-effect::before {
+  left: -2px;
+  background: transparent;
+  text-shadow: 2px 0 hsl(var(--primary));
+  animation: glitch 3s infinite linear alternate-reverse;
+}
+
+.glitch-effect::after {
+  left: 2px;
+  background: transparent;
+  text-shadow: -2px 0 hsl(var(--accent));
+  animation: glitch 2s infinite linear alternate-reverse;
+}
+
+.futuristic-border {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.futuristic-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #366B98, transparent);
+  animation: border-flow 3s infinite;
+}
+
+@keyframes border-flow {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.bg-grid-white\/5 {
+  background-size: 30px 30px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+.mask-gradient-to-b {
+  mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+.python-indentation {
+  @apply pl-4 border-l-2 border-[#366B98]/30;
+}
+
+.python-comment {
+  @apply text-[#FFD343]/70 italic;
+}
