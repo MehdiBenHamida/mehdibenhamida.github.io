@@ -1,11 +1,86 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    Hello
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mehdi Ben Hamida — Software Engineer & Python Developer</title>
+    <meta name="description" content="Personal website of Mehdi Ben Hamida: software engineer and Python developer. Articles, portfolio, and book recommendations." />
+    <link rel="icon" href="assets/img/favicon.ico" />
+    <link rel="preload" href="assets/img/profile-picture.jpg" as="image" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <meta property="og:title" content="Mehdi Ben Hamida" />
+    <meta property="og:description" content="Software engineer & Python developer. Articles, portfolio, and book recommendations." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/img/profile-picture.jpg" />
   </head>
-
   <body>
-    Mehdi Ben Hamida
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" role="banner">
+      <nav class="nav" aria-label="Primary">
+        <a class="logo" href="/">MBH</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <ul id="nav-menu" class="nav-menu">
+          <li><a href="index.html" aria-current="page">About</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="books.html">Books</a></li>
+          <li><a href="mailto:mehdi@example.com" rel="nofollow noopener">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <img class="hero-avatar" src="assets/img/profile-picture.jpg" alt="Portrait of Mehdi Ben Hamida" width="160" height="160" />
+        <div class="hero-text">
+          <h1>Mehdi Ben Hamida</h1>
+          <p class="subtitle">Software Engineer • Python Developer</p>
+          <p class="lead">I build reliable, scalable software with a focus on Python, backend systems, and developer experience.</p>
+          <div class="hero-cta">
+            <a class="btn" href="portfolio.html">View Portfolio</a>
+            <a class="btn btn-secondary" href="articles.html">Read Articles</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <article class="card">
+          <h2>What I Do</h2>
+          <p>Backend development, APIs, data pipelines, and automation. I care about clean code, observability, and maintainable systems.</p>
+          <ul class="tags">
+            <li>Python</li>
+            <li>FastAPI</li>
+            <li>Django</li>
+            <li>SQL</li>
+            <li>Docker</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Recent Work</h2>
+          <p>Explore selected projects including performant services, CLI tools, and integrations.</p>
+          <a class="inline-link" href="portfolio.html">See portfolio →</a>
+        </article>
+        <article class="card">
+          <h2>Writing</h2>
+          <p>Notes on engineering practices, Python tips, architecture, and tooling.</p>
+          <a class="inline-link" href="articles.html">Browse articles →</a>
+        </article>
+        <article class="card">
+          <h2>Books I Recommend</h2>
+          <p>Handpicked books that shaped my thinking in software engineering.</p>
+          <a class="inline-link" href="books.html">View recommendations →</a>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Mehdi Ben Hamida • <a href="https://github.com/mehdibenhamida" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
