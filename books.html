@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Books — Mehdi Ben Hamida</title>
+  <meta name="description" content="Book recommendations by Mehdi Ben Hamida for software engineers and Python developers." />
+  <link rel="icon" href="assets/img/favicon.ico" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <nav class="nav" aria-label="Primary">
+      <a class="logo" href="/">MBH</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="index.html">About</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="books.html" aria-current="page">Books</a></li>
+        <li><a href="mailto:mehdi@example.com" rel="nofollow noopener">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="main-content">
+    <h1 class="section-title">Books</h1>
+    <p class="card-meta">Recommendations that shaped my engineering approach.</p>
+    <section class="grid">
+      <article class="card">
+        <h2>Clean Architecture — Robert C. Martin</h2>
+        <p class="card-meta">Architecture • Principles</p>
+        <p>Pragmatic guidance on boundaries, testability, and resilient design.</p>
+      </article>
+      <article class="card">
+        <h2>Designing Data-Intensive Applications — Martin Kleppmann</h2>
+        <p class="card-meta">Systems • Data • Reliability</p>
+        <p>A thorough exploration of data systems, scalability, and trade-offs.</p>
+      </article>
+      <article class="card">
+        <h2>Effective Python — Brett Slatkin</h2>
+        <p class="card-meta">Python • Best Practices</p>
+        <p>Actionable tips to write clearer, faster, and more maintainable Python.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Mehdi Ben Hamida • <a href="https://github.com/mehdibenhamida" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+/* Global theme variables */
+:root {
+  --bg: #0f1115;
+  --bg-elev: #151821;
+  --text: #e6e6e6;
+  --muted: #b0b8c3;
+  --accent: #4f8cff;
+  --accent-2: #7c4dff;
+  --border: #262a36;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #ffffff;
+    --bg-elev: #f6f8fb;
+    --text: #1a1f2b;
+    --muted: #445066;
+    --accent: #175fe6;
+    --accent-2: #5b2be2;
+    --border: #e4e8f0;
+  }
+}
+
+/* Reset & base */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Layout */
+.skip-link {
+  position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden;
+}
+.skip-link:focus { position: static; width: auto; height: auto; padding: .5rem 1rem; background: var(--bg-elev); border: 1px solid var(--border); }
+
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  backdrop-filter: blur(6px);
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  border-bottom: 1px solid var(--border);
+}
+.nav {
+  max-width: 1100px; margin: 0 auto; padding: .75rem 1rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo { font-weight: 700; letter-spacing: .5px; color: var(--text); }
+.nav-menu { list-style: none; margin: 0; padding: 0; display: flex; gap: 1rem; align-items: center; }
+.nav-menu a { color: var(--text); opacity: .9; }
+.nav-menu a[aria-current="page"] { color: var(--accent); font-weight: 600; }
+.nav-toggle { display: none; background: transparent; border: none; cursor: pointer; }
+.nav-toggle-bar { display: block; width: 22px; height: 2px; background: var(--text); margin: 4px 0; }
+
+@media (max-width: 760px) {
+  .nav-toggle { display: inline-block; }
+  .nav-menu { position: absolute; right: 1rem; top: 56px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 10px; padding: .5rem; display: none; flex-direction: column; min-width: 200px; }
+  .nav-menu.open { display: flex; }
+}
+
+.hero { max-width: 1100px; margin: 2rem auto; padding: 2rem 1rem; display: grid; grid-template-columns: 160px 1fr; gap: 1.5rem; align-items: center; }
+.hero-avatar { border-radius: 50%; border: 2px solid var(--border); }
+.hero-text h1 { margin: 0; font-size: 2rem; }
+.subtitle { color: var(--muted); margin: .25rem 0 .75rem; }
+.lead { font-size: 1.05rem; }
+.hero-cta { display: flex; gap: .75rem; margin-top: 1rem; }
+
+.btn { display: inline-block; padding: .6rem 1rem; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-elev); color: var(--text); }
+.btn:hover { background: color-mix(in srgb, var(--bg-elev) 85%, var(--accent)); text-decoration: none; }
+.btn-secondary { background: transparent; }
+
+.content-grid { max-width: 1100px; margin: 0 auto 2rem; padding: 0 1rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+@media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } }
+.card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; }
+.tags { display: flex; gap: .5rem; flex-wrap: wrap; padding: 0; margin: .75rem 0 0; list-style: none; }
+.tags li { padding: .25rem .5rem; border: 1px dashed var(--border); border-radius: 999px; color: var(--muted); font-size: .85rem; }
+.inline-link { color: var(--accent-2); }
+
+.main-content { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+.section-title { margin: 0 0 1rem; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+@media (max-width: 1000px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+.card-meta { color: var(--muted); font-size: .9rem; }
+
+.site-footer { border-top: 1px solid var(--border); margin-top: 2rem; }
+.site-footer p { max-width: 1100px; margin: 0 auto; padding: 1rem; color: var(--muted); }
+
