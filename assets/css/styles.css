@@ -7,6 +7,9 @@
   --accent: #4f8cff;
   --accent-2: #7c4dff;
   --border: #262a36;
+  /* Added layout constants for fixed footer/header spacing */
+  --header-h: 56px;
+  --footer-h: 56px;
 }
 @media (prefers-color-scheme: light) {
   :root {
@@ -79,7 +82,19 @@ a:hover { text-decoration: underline; }
 @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } }
 .card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; }
 .tags { display: flex; gap: .5rem; flex-wrap: wrap; padding: 0; margin: .75rem 0 0; list-style: none; }
-.tags li { padding: .25rem .5rem; border: 1px dashed var(--border); border-radius: 999px; color: var(--muted); font-size: .85rem; }
+/* Updated tag chip design: blurred, semi-transparent, soft border */
+.tags li {
+  padding: .35rem .7rem;
+  border-radius: 999px;
+  font-size: .85rem;
+  color: var(--text);
+  /* translucent glassy background */
+  background: color-mix(in srgb, var(--bg-elev) 55%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  box-shadow: 0 1px 2px color-mix(in srgb, #000 30%, transparent);
+}
 .inline-link { color: var(--accent-2); }
 
 .main-content { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
@@ -89,6 +104,26 @@ a:hover { text-decoration: underline; }
 @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
 .card-meta { color: var(--muted); font-size: .9rem; }
 
-.site-footer { border-top: 1px solid var(--border); margin-top: 2rem; }
-.site-footer p { max-width: 1100px; margin: 0 auto; padding: 1rem; color: var(--muted); }
+/* Make footer fixed and translucent with blur; ensure content doesn't get covered */
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  border-top: 1px solid var(--border);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+}
+.site-footer p { max-width: 1100px; margin: 0 auto; padding: .75rem 1rem; color: var(--muted); }
 
+/* Provide bottom padding to main content areas so fixed footer doesn't overlap */
+main, .main-content {
+  padding-bottom: calc(var(--footer-h) + 16px);
+}
+
+/* Optional: account for sticky header at top when using anchor links */
+main {
+  scroll-margin-top: var(--header-h);
+}
