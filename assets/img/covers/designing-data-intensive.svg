@@ -1,0 +1,78 @@
+<svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dataGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a" />
+      <stop offset="50%" style="stop-color:#1e293b" />
+      <stop offset="100%" style="stop-color:#0f172a" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="300" height="400" fill="url(#dataGrad)"/>
+
+  <!-- Data flow visualization -->
+  <g transform="translate(40, 50)">
+    <!-- Data sources -->
+    <rect x="0" y="0" width="30" height="40" fill="#10b981" opacity="0.8" rx="4" filter="url(#glow)"/>
+    <rect x="40" y="0" width="30" height="40" fill="#10b981" opacity="0.8" rx="4" filter="url(#glow)"/>
+    <rect x="80" y="0" width="30" height="40" fill="#10b981" opacity="0.8" rx="4" filter="url(#glow)"/>
+
+    <!-- Processing layer -->
+    <rect x="20" y="80" width="80" height="30" fill="#00d4ff" opacity="0.7" rx="6" filter="url(#glow)"/>
+    <text x="60" y="100" text-anchor="middle" fill="#0f172a" font-family="Inter, sans-serif" font-size="10" font-weight="600">PROCESS</text>
+
+    <!-- Storage systems -->
+    <circle cx="30" cy="160" r="20" fill="#8b5cf6" opacity="0.7" filter="url(#glow)"/>
+    <circle cx="90" cy="160" r="20" fill="#8b5cf6" opacity="0.7" filter="url(#glow)"/>
+
+    <!-- Network connections -->
+    <g stroke="#f471b5" stroke-width="2" fill="none" opacity="0.6">
+      <path d="M15,45 Q30,60 40,75"/>
+      <path d="M55,45 Q60,60 60,75"/>
+      <path d="M95,45 Q80,60 80,75"/>
+
+      <path d="M45,115 Q35,135 30,140"/>
+      <path d="M75,115 Q85,135 90,140"/>
+    </g>
+
+    <!-- Scalability indicators -->
+    <g transform="translate(140, 60)" fill="#f471b5" opacity="0.6">
+      <rect x="0" y="0" width="40" height="6" rx="3"/>
+      <rect x="0" y="12" width="50" height="6" rx="3"/>
+      <rect x="0" y="24" width="60" height="6" rx="3"/>
+      <rect x="0" y="36" width="70" height="6" rx="3"/>
+    </g>
+  </g>
+
+  <!-- Distributed systems diagram -->
+  <g transform="translate(50, 220)">
+    <circle cx="50" cy="30" r="15" fill="#00d4ff" opacity="0.8" filter="url(#glow)"/>
+    <circle cx="100" cy="10" r="12" fill="#10b981" opacity="0.7"/>
+    <circle cx="150" cy="30" r="15" fill="#8b5cf6" opacity="0.8" filter="url(#glow)"/>
+    <circle cx="75" cy="70" r="10" fill="#f471b5" opacity="0.6"/>
+    <circle cx="125" cy="70" r="10" fill="#f471b5" opacity="0.6"/>
+
+    <!-- Connections -->
+    <g stroke="#f0f4ff" stroke-width="1" fill="none" opacity="0.4">
+      <line x1="65" y1="30" x2="85" y2="15"/>
+      <line x1="115" y1="15" x2="135" y2="30"/>
+      <line x1="60" y1="45" x2="75" y2="60"/>
+      <line x1="90" y1="45" x2="115" y2="60"/>
+      <line x1="140" y1="45" x2="125" y2="60"/>
+    </g>
+  </g>
+
+  <!-- Title -->
+  <rect x="15" y="320" width="270" height="70" fill="rgba(16,185,129,0.1)" rx="8"/>
+  <text x="150" y="340" text-anchor="middle" fill="#10b981" font-family="Inter, sans-serif" font-size="14" font-weight="800">DESIGNING</text>
+  <text x="150" y="355" text-anchor="middle" fill="#00d4ff" font-family="Inter, sans-serif" font-size="14" font-weight="800">DATA-INTENSIVE</text>
+  <text x="150" y="370" text-anchor="middle" fill="#8b5cf6" font-family="Inter, sans-serif" font-size="14" font-weight="800">APPLICATIONS</text>
+  <text x="150" y="385" text-anchor="middle" fill="#f0f4ff" font-family="Inter, sans-serif" font-size="10" font-weight="500">Martin Kleppmann</text>
+</svg>
+
