@@ -27,12 +27,12 @@
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
 
-        const rotateX = ((y - centerY) / centerY) * 5;
-        const rotateY = ((centerX - x) / centerX) * 5;
-        const scale = 1.02;
+        const rotateX = ((y - centerY) / centerY) * 2;
+        const rotateY = ((centerX - x) / centerX) * 2;
+        const scale = 1.01;
 
         card.style.transform = `
-          translateY(-12px) 
+          translateY(-6px) 
           rotateX(${rotateX}deg) 
           rotateY(${rotateY}deg) 
           scale(${scale})
@@ -87,7 +87,7 @@
       if (mouseTrailTimer) clearTimeout(mouseTrailTimer);
       mouseTrailTimer = setTimeout(() => {
         createCursorTrail(e.clientX, e.clientY);
-      }, 50);
+      }, 100);
     });
   }
 
@@ -128,7 +128,7 @@
   const buttons = document.querySelectorAll('.btn');
   buttons.forEach(button => {
     button.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-3px) scale(1.02)';
+      this.style.transform = 'translateY(-2px) scale(1.01)';
     });
 
     button.addEventListener('mouseleave', function() {
@@ -138,28 +138,28 @@
 
   // Dynamic particle system (lightweight)
   function createParticle() {
-    if (Math.random() > 0.7 && window.innerWidth > 768) { // Reduce frequency on mobile
+    if (Math.random() > 0.85 && window.innerWidth > 768) { // Reduce frequency for more subtle effect
       const particle = document.createElement('div');
       particle.className = 'dynamic-particle';
       particle.style.cssText = `
         position: fixed;
-        width: 2px;
-        height: 2px;
-        background: rgba(0, 212, 255, 0.6);
+        width: 1px;
+        height: 1px;
+        background: rgba(0, 212, 255, 0.4);
         border-radius: 50%;
         pointer-events: none;
         z-index: 1;
         left: ${Math.random() * window.innerWidth}px;
         top: 100vh;
-        box-shadow: 0 0 6px rgba(0, 212, 255, 0.8);
-        animation: float-up 8s linear forwards;
+        box-shadow: 0 0 4px rgba(0, 212, 255, 0.6);
+        animation: float-up 12s linear forwards;
       `;
 
       document.body.appendChild(particle);
 
       setTimeout(() => {
         particle.remove();
-      }, 8000);
+      }, 12000);
     }
   }
 
@@ -186,7 +186,7 @@
   document.head.appendChild(particleStyle);
 
   // Create particles periodically
-  setInterval(createParticle, 3000);
+  setInterval(createParticle, 5000);
 
   // Header scroll effect
   let lastScrollY = 0;
