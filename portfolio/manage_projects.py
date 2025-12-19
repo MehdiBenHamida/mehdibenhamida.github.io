@@ -166,7 +166,7 @@ def create_project_template():
         <li><a href="../portfolio.html">Portfolio</a></li>
         <li><a href="../books.html">Books</a></li>
         <li><a href="../resume.html">Resume</a></li>
-        <li><a href="mailto:mehdi@example.com" rel="nofollow noopener">Contact</a></li>
+        <li><a href="../contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
