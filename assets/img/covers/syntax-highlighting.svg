@@ -1,0 +1,140 @@
+<svg viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="syntaxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f471b5;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.8" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="smallGlow">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="400" height="240" fill="#1a1a24"/>
+  <rect width="400" height="240" fill="url(#syntaxGrad)" opacity="0.1"/>
+
+  <!-- Code editor visualization -->
+  <g transform="translate(40, 30)">
+    <!-- Main editor window -->
+    <rect x="0" y="0" width="320" height="180" fill="#0a0a0f" stroke="#00d4ff" stroke-width="2" rx="12" filter="url(#glow)" opacity="0.8"/>
+
+    <!-- Editor header -->
+    <rect x="0" y="0" width="320" height="25" fill="#00d4ff" opacity="0.2" rx="12"/>
+    <circle cx="15" cy="12" r="4" fill="#f471b5" filter="url(#smallGlow)"/>
+    <circle cx="30" cy="12" r="4" fill="#fbbf24" filter="url(#smallGlow)"/>
+    <circle cx="45" cy="12" r="4" fill="#10b981" filter="url(#smallGlow)"/>
+
+    <!-- Language tabs -->
+    <g transform="translate(80, 5)">
+      <rect x="0" y="0" width="40" height="15" fill="#f471b5" opacity="0.3" rx="3"/>
+      <text x="20" y="9" text-anchor="middle" fill="#f471b5" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600">PY</text>
+
+      <rect x="45" y="0" width="40" height="15" fill="#00d4ff" opacity="0.3" rx="3"/>
+      <text x="65" y="9" text-anchor="middle" fill="#00d4ff" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600">JS</text>
+
+      <rect x="90" y="0" width="40" height="15" fill="#8b5cf6" opacity="0.3" rx="3"/>
+      <text x="110" y="9" text-anchor="middle" fill="#8b5cf6" font-family="JetBrains Mono, monospace" font-size="8" font-weight="600">SQL</text>
+    </g>
+
+    <!-- Code lines with syntax highlighting -->
+    <g transform="translate(15, 40)" font-family="JetBrains Mono, monospace" font-size="10">
+      <!-- Python code example -->
+      <g>
+        <!-- Line 1: def function -->
+        <text x="0" y="0" fill="#f471b5" font-weight="600">def</text>
+        <text x="25" y="0" fill="#fbbf24">process_data</text>
+        <text x="95" y="0" fill="#f0f4ff">(</text>
+        <text x="100" y="0" fill="#00d4ff">data</text>
+        <text x="125" y="0" fill="#f0f4ff">):</text>
+
+        <!-- Line 2: comment -->
+        <text x="0" y="15" fill="#6b7280" font-style="italic"># Process the input data</text>
+
+        <!-- Line 3: if statement -->
+        <text x="10" y="30" fill="#f471b5" font-weight="600">if</text>
+        <text x="30" y="30" fill="#00d4ff">data</text>
+        <text x="55" y="30" fill="#8b5cf6">is not</text>
+        <text x="95" y="30" fill="#f471b5" font-weight="600">None</text>
+        <text x="130" y="30" fill="#f0f4ff">:</text>
+
+        <!-- Line 4: return statement -->
+        <text x="20" y="45" fill="#f471b5" font-weight="600">return</text>
+        <text x="65" y="45" fill="#00d4ff">"Success"</text>
+
+        <!-- Line 5: JavaScript -->
+        <text x="0" y="65" fill="#6b7280">// JavaScript example</text>
+        <text x="0" y="80" fill="#f471b5" font-weight="600">const</text>
+        <text x="40" y="80" fill="#fbbf24">result</text>
+        <text x="75" y="80" fill="#8b5cf6">=</text>
+        <text x="85" y="80" fill="#f471b5" font-weight="600">await</text>
+        <text x="120" y="80" fill="#fbbf24">fetch</text>
+        <text x="150" y="80" fill="#f0f4ff">(</text>
+        <text x="155" y="80" fill="#00d4ff">url</text>
+        <text x="170" y="80" fill="#f0f4ff">);</text>
+
+        <!-- Line 6: SQL -->
+        <text x="0" y="100" fill="#6b7280">-- SQL example</text>
+        <text x="0" y="115" fill="#8b5cf6" font-weight="600">SELECT</text>
+        <text x="45" y="115" fill="#f0f4ff">*</text>
+        <text x="55" y="115" fill="#8b5cf6" font-weight="600">FROM</text>
+        <text x="85" y="115" fill="#fbbf24">users</text>
+        <text x="115" y="115" fill="#8b5cf6" font-weight="600">WHERE</text>
+        <text x="155" y="115" fill="#fbbf24">active</text>
+        <text x="185" y="115" fill="#8b5cf6">=</text>
+        <text x="195" y="115" fill="#10b981">true</text>
+        <text x="220" y="115" fill="#f0f4ff">;</text>
+      </g>
+    </g>
+
+    <!-- Language indicators on right -->
+    <g transform="translate(250, 40)">
+      <circle cx="0" cy="5" r="3" fill="#f471b5" filter="url(#smallGlow)"/>
+      <text x="10" y="8" fill="#f0f4ff" font-family="Inter, sans-serif" font-size="8" opacity="0.8">Python</text>
+
+      <circle cx="0" cy="25" r="3" fill="#fbbf24" filter="url(#smallGlow)"/>
+      <text x="10" y="28" fill="#f0f4ff" font-family="Inter, sans-serif" font-size="8" opacity="0.8">JavaScript</text>
+
+      <circle cx="0" cy="45" r="3" fill="#8b5cf6" filter="url(#smallGlow)"/>
+      <text x="10" y="48" fill="#f0f4ff" font-family="Inter, sans-serif" font-size="8" opacity="0.8">SQL</text>
+
+      <circle cx="0" cy="65" r="3" fill="#00d4ff" filter="url(#smallGlow)"/>
+      <text x="10" y="68" fill="#f0f4ff" font-family="Inter, sans-serif" font-size="8" opacity="0.8">TypeScript</text>
+
+      <circle cx="0" cy="85" r="3" fill="#10b981" filter="url(#smallGlow)"/>
+      <text x="10" y="88" fill="#f0f4ff" font-family="Inter, sans-serif" font-size="8" opacity="0.8">Docker</text>
+    </g>
+
+    <!-- Bottom status bar -->
+    <g transform="translate(0, 155)">
+      <rect x="0" y="0" width="320" height="25" fill="#00d4ff" opacity="0.1" rx="0 0 12 12"/>
+      <text x="10" y="15" fill="#00d4ff" font-family="Inter, sans-serif" font-size="8" font-weight="600">Syntax Highlighting: ON</text>
+      <text x="200" y="15" fill="#10b981" font-family="Inter, sans-serif" font-size="8">✓ Auto-detected</text>
+    </g>
+  </g>
+
+  <!-- Floating code symbols -->
+  <g opacity="0.3">
+    <text x="30" y="40" fill="#f471b5" font-family="JetBrains Mono, monospace" font-size="14" filter="url(#smallGlow)">&lt;/&gt;</text>
+    <text x="350" y="60" fill="#00d4ff" font-family="JetBrains Mono, monospace" font-size="12" filter="url(#smallGlow)">{}</text>
+    <text x="20" y="220" fill="#8b5cf6" font-family="JetBrains Mono, monospace" font-size="10" filter="url(#smallGlow)">def</text>
+    <text x="360" y="200" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="10" filter="url(#smallGlow)">=></text>
+  </g>
+
+  <!-- Background geometric elements -->
+  <g opacity="0.1">
+    <polygon points="350,20 370,30 360,50 340,40" fill="#00d4ff"/>
+    <polygon points="30,200 50,210 40,230 20,220" fill="#8b5cf6"/>
+    <polygon points="370,180 390,190 380,210 360,200" fill="#f471b5"/>
+  </g>
+</svg>

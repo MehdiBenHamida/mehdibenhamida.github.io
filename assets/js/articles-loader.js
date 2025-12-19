@@ -10,7 +10,7 @@ class ArticlesLoader {
             "title": "Syntax Highlighting Demo",
             "subtitle": "Demo • Features • 2025",
             "description": "Demonstration of automatic syntax highlighting for multiple programming languages.",
-            "cover": "placeholder.svg",
+            "cover": "syntax-highlighting.svg",
             "published": "2025-01-16",
             "status": "published",
             "url": "syntax-highlighting-demo.html"
