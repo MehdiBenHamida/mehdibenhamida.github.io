@@ -1,0 +1,63 @@
+[
+  {
+    "id": "data-pipeline-orchestrator",
+    "title": "Data Pipeline Orchestrator",
+    "subtitle": "Python • Airflow • Docker",
+    "description": "Composable DAGs, clear observability, and robust retries for production pipelines.",
+    "github": "https://github.com/mehdibenhamida/data-pipeline-orchestrator",
+    "demo": "",
+    "technologies": ["Python", "Apache Airflow", "Docker", "PostgreSQL"],
+    "status": "published",
+    "created": "2024-08-15",
+    "featured": true
+  },
+  {
+    "id": "fastapi-service-template",
+    "title": "FastAPI Service Template",
+    "subtitle": "FastAPI • Pydantic • Testing",
+    "description": "Opinionated template with health checks, logging, error handling, and CI.",
+    "github": "https://github.com/mehdibenhamida/fastapi-service-template",
+    "demo": "",
+    "technologies": ["FastAPI", "Pydantic", "pytest", "Docker"],
+    "status": "published",
+    "created": "2024-06-20",
+    "featured": true
+  },
+  {
+    "id": "cli-toolkit",
+    "title": "CLI Toolkit",
+    "subtitle": "Python • Typer • Rich",
+    "description": "Developer-friendly CLI tools for automation and daily workflows.",
+    "github": "https://github.com/mehdibenhamida/cli-toolkit",
+    "demo": "",
+    "technologies": ["Python", "Typer", "Rich", "Click"],
+    "status": "published",
+    "created": "2024-05-10",
+    "featured": false
+  },
+  {
+    "id": "microservices-auth",
+    "title": "Microservices Authentication",
+    "subtitle": "JWT • Redis • FastAPI",
+    "description": "Scalable authentication service with JWT tokens, refresh mechanisms, and Redis caching.",
+    "github": "https://github.com/mehdibenhamida/microservices-auth",
+    "demo": "",
+    "technologies": ["FastAPI", "JWT", "Redis", "PostgreSQL"],
+    "status": "published",
+    "created": "2024-03-15",
+    "featured": true
+  },
+  {
+    "id": "ml-pipeline-automation",
+    "title": "ML Pipeline Automation",
+    "subtitle": "MLOps • Python • Kubernetes",
+    "description": "End-to-end machine learning pipeline with automated training, validation, and deployment.",
+    "github": "https://github.com/mehdibenhamida/ml-pipeline-automation",
+    "demo": "",
+    "technologies": ["Python", "scikit-learn", "Kubernetes", "MLflow"],
+    "status": "published",
+    "created": "2024-02-01",
+    "featured": false
+  }
+]
+

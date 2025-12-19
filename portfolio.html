@@ -34,26 +34,20 @@
 
   <main id="main" class="main-content">
     <h1 class="section-title">Portfolio</h1>
-    <p class="card-meta">A curated selection of projects. More on GitHub.</p>
-    <section class="grid">
-      <article class="card">
-        <h2>Data Pipeline Orchestrator</h2>
-        <p class="card-meta">Python • Airflow • Docker</p>
-        <p>Composable DAGs, clear observability, and robust retries for production pipelines.</p>
-        <a class="inline-link" href="#">Case study (soon)</a>
-      </article>
-      <article class="card">
-        <h2>FastAPI Service Template</h2>
-        <p class="card-meta">FastAPI • Pydantic • Testing</p>
-        <p>Opinionated template with health checks, logging, error handling, and CI.</p>
-        <a class="inline-link" href="#">Repo (soon)</a>
-      </article>
-      <article class="card">
-        <h2>CLI Toolkit</h2>
-        <p class="card-meta">Python • Typer • Rich</p>
-        <p>Developer-friendly CLI tools for automation and daily workflows.</p>
-        <a class="inline-link" href="#">Docs (soon)</a>
-      </article>
+    <p class="card-meta">A curated selection of projects. More on <a href="https://github.com/mehdibenhamida" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+
+    <!-- Portfolio filters -->
+    <div class="portfolio-filters">
+      <button class="filter-btn active" onclick="portfolioLoader.showAllProjects(this)">All Projects</button>
+      <button class="filter-btn" onclick="portfolioLoader.showFeaturedOnly(this)">Featured</button>
+      <button class="filter-btn" onclick="portfolioLoader.filterByTechnology('Python', this)">Python</button>
+      <button class="filter-btn" onclick="portfolioLoader.filterByTechnology('FastAPI', this)">FastAPI</button>
+      <button class="filter-btn" onclick="portfolioLoader.filterByTechnology('Docker', this)">Docker</button>
+    </div>
+
+    <!-- Dynamic portfolio grid -->
+    <section class="portfolio-grid">
+      <!-- Projects will be loaded dynamically here -->
     </section>
   </main>
 
@@ -62,6 +56,7 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/portfolio-loader.js"></script>
 </body>
 </html>
 
