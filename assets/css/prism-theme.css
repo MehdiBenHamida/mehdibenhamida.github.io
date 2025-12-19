@@ -1,0 +1,359 @@
+/* Custom Prism.js theme for futuristic design */
+/* Based on Tomorrow Night theme but adapted for the site's color palette */
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #f0f4ff;
+  background: none;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  font-family: 'JetBrains Mono', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 0.9em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1.5em;
+  margin: 1.5em 0;
+  overflow: auto;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #0a0a0f 0%, #1a1a24 100%);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+pre[class*="language-"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(0, 212, 255, 0.6) 50%,
+    transparent
+  );
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 0.2em 0.4em;
+  border-radius: 6px;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  color: #00d4ff;
+}
+
+/* Selection */
+pre[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection,
+code[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+  background: rgba(139, 92, 246, 0.3);
+}
+
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
+  text-shadow: none;
+  background: rgba(139, 92, 246, 0.3);
+}
+
+/* Tokens */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #6b7280;
+  font-style: italic;
+}
+
+.token.punctuation {
+  color: #f0f4ff;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #f471b5;
+}
+
+.token.boolean,
+.token.number {
+  color: #10b981;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #00d4ff;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+  color: #8b5cf6;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+  color: #fbbf24;
+}
+
+.token.keyword {
+  color: #f471b5;
+  font-weight: 600;
+}
+
+.token.regex,
+.token.important {
+  color: #f59e0b;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+/* Language-specific styling */
+.token.namespace {
+  opacity: 0.7;
+}
+
+/* Python-specific */
+.language-python .token.decorator {
+  color: #fbbf24;
+}
+
+.language-python .token.string-interpolation {
+  color: #00d4ff;
+}
+
+/* JavaScript/TypeScript-specific */
+.language-javascript .token.template-string,
+.language-typescript .token.template-string {
+  color: #00d4ff;
+}
+
+/* JSON-specific */
+.language-json .token.property {
+  color: #00d4ff;
+}
+
+.language-json .token.string {
+  color: #10b981;
+}
+
+/* CSS-specific */
+.language-css .token.property {
+  color: #00d4ff;
+}
+
+.language-css .token.selector {
+  color: #f471b5;
+}
+
+/* SQL-specific */
+.language-sql .token.keyword {
+  color: #8b5cf6;
+  text-transform: uppercase;
+}
+
+/* Docker/Bash-specific */
+.language-docker .token.instruction,
+.language-dockerfile .token.instruction {
+  color: #f471b5;
+  font-weight: 600;
+}
+
+.language-bash .token.function {
+  color: #10b981;
+}
+
+/* Line highlighting */
+.line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin-top: inherit;
+  background: rgba(0, 212, 255, 0.08);
+  background: linear-gradient(to right, rgba(0, 212, 255, 0.1) 70%, rgba(0, 212, 255, 0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+/* Line numbers */
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em;
+  letter-spacing: -1px;
+  border-right: 1px solid rgba(0, 212, 255, 0.3);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.line-numbers-rows > span {
+  pointer-events: none;
+  display: block;
+  counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+  content: counter(linenumber);
+  color: #6b7280;
+  display: block;
+  padding-right: 0.8em;
+  text-align: right;
+}
+
+/* Command line */
+.command-line-prompt {
+  border-right: 1px solid rgba(0, 212, 255, 0.3);
+  display: block;
+  float: left;
+  font-size: 100%;
+  letter-spacing: -1px;
+  margin-right: 1em;
+  pointer-events: none;
+  text-align: right;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.command-line-prompt > span:before {
+  color: #10b981;
+  content: ' ';
+  display: block;
+  padding-right: 0.8em;
+}
+
+.command-line-prompt > span[data-user]:before {
+  content: "[" attr(data-user) "@" attr(data-host) "] $";
+}
+
+.command-line-prompt > span[data-user="root"]:before {
+  content: "[" attr(data-user) "@" attr(data-host) "] #";
+}
+
+.command-line-prompt > span[data-prompt]:before {
+  content: attr(data-prompt);
+}
+
+/* Scrollbar for code blocks */
+pre[class*="language-"]::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb {
+  background: rgba(0, 212, 255, 0.3);
+  border-radius: 3px;
+}
+
+pre[class*="language-"]::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 212, 255, 0.5);
+}
+
+/* Language label */
+pre[class*="language-"][data-language]::after {
+  content: attr(data-language);
+  position: absolute;
+  top: 0.5em;
+  right: 1em;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  color: rgba(0, 212, 255, 0.7);
+  background: rgba(0, 212, 255, 0.1);
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  letter-spacing: 0.5px;
+}
+
+/* Copy button */
+.code-toolbar {
+  position: relative;
+}
+
+.code-toolbar .toolbar {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.code-toolbar:hover .toolbar {
+  opacity: 1;
+}
+
+.code-toolbar .toolbar .toolbar-item {
+  display: inline-block;
+}
+
+.code-toolbar .toolbar .toolbar-item button {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 6px;
+  color: #00d4ff;
+  cursor: pointer;
+  font-size: 0.7em;
+  padding: 0.4em 0.8em;
+  transition: all 0.2s ease;
+}
+
+.code-toolbar .toolbar .toolbar-item button:hover {
+  background: rgba(0, 212, 255, 0.2);
+  border-color: rgba(0, 212, 255, 0.5);
+  transform: translateY(-1px);
+}

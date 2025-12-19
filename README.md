@@ -18,6 +18,12 @@ A modern, dynamic personal website with a futuristic design featuring advanced a
 - **Dynamic Particles**: Background particle system with floating elements
 - **Smooth Transitions**: Hardware-accelerated animations with custom easing
 
+### 📱 Deployment
+- **GitHub Pages Ready**: Fully static, no server-side requirements
+- **Articles Management**: Dynamic article loading with embedded data
+- **Cross-Platform**: Works on all modern browsers and devices
+- **Fast Loading**: Optimized assets and minimal dependencies
+
 ### 🚀 Performance
 - **Semantic HTML**: Proper document structure and accessibility
 - **Modern CSS**: Custom properties, advanced animations, and responsive design

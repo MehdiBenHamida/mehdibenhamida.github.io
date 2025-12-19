@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Practical Python Project Structure — Mehdi Ben Hamida</title>
+  <meta name="description" content="Guidelines for structuring medium-sized Python services for clarity and maintainability." />
+  <link rel="icon" href="../assets/img/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/prism-theme.css" />
+  <style>
+    .article-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem 0;
+    }
+    .article-meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .article-content {
+      max-width: 65ch;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .article-content h2 {
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .article-content p {
+      margin-bottom: 1.25rem;
+    }
+    .article-content code {
+      background: var(--bg-card);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    .article-content pre {
+      background: var(--bg-card);
+      padding: 1.5rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.2s var(--ease);
+    }
+    .back-link:hover {
+      color: var(--accent-2);
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <nav class="nav" aria-label="Primary">
+      <a class="logo" href="/">MBH</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="../index.html">About</a></li>
+        <li><a href="../articles.html">Articles</a></li>
+        <li><a href="../portfolio.html">Portfolio</a></li>
+        <li><a href="../books.html">Books</a></li>
+        <li><a href="../resume.html">Resume</a></li>
+        <li><a href="mailto:mehdi@example.com" rel="nofollow noopener">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="main-content">
+    <a href="../articles.html" class="back-link">← Back to Articles</a>
+
+    <article class="article-header">
+      <h1>Practical Python Project Structure</h1>
+      <p class="article-meta">Architecture • Python • January 15, 2025</p>
+    </article>
+
+    <div class="article-content">
+      <p>Building maintainable Python applications requires thoughtful project organization. This guide covers practical patterns for structuring medium-sized services that balance clarity with scalability.</p>
+
+      <h2>Core Principles</h2>
+
+      <p>When structuring a Python project, consider these foundational principles:</p>
+
+      <ul>
+        <li><strong>Separation of Concerns</strong> - Keep business logic, data access, and presentation layers distinct</li>
+        <li><strong>Import Clarity</strong> - Structure modules so imports are intuitive and dependencies are clear</li>
+        <li><strong>Testability</strong> - Organize code to make unit and integration testing straightforward</li>
+        <li><strong>Configuration Management</strong> - Centralize settings and environment-specific configuration</li>
+      </ul>
+
+      <h2>Recommended Structure</h2>
+
+      <pre><code>my_service/
+├── src/
+│   └── my_service/
+│       ├── __init__.py
+│       ├── main.py              # Application entry point
+│       ├── config.py            # Configuration management
+│       ├── models/              # Data models and schemas
+│       │   ├── __init__.py
+│       │   ├── user.py
+│       │   └── product.py
+│       ├── services/            # Business logic layer
+│       │   ├── __init__.py
+│       │   ├── user_service.py
+│       │   └── product_service.py
+│       ├── repositories/        # Data access layer
+│       │   ├── __init__.py
+│       │   ├── base.py
+│       │   └── user_repository.py
+│       └── api/                 # API routes and handlers
+│           ├── __init__.py
+│           ├── dependencies.py
+│           └── v1/
+│               ├── __init__.py
+│               └── users.py
+├── tests/
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── unit/
+│   └── integration/
+├── docs/
+├── requirements.txt
+├── requirements-dev.txt
+├── pyproject.toml
+├── Dockerfile
+└── README.md</code></pre>
+
+      <h2>Key Patterns</h2>
+
+      <p>This structure follows several important patterns that scale well as your project grows:</p>
+
+      <h3>Layered Architecture</h3>
+
+      <p>The separation between models, services, repositories, and API layers creates clear boundaries. Each layer has a specific responsibility and depends only on layers below it.</p>
+
+      <h3>Dependency Injection</h3>
+
+      <p>Services depend on abstract interfaces rather than concrete implementations. This makes testing easier and keeps your business logic decoupled from infrastructure concerns.</p>
+
+      <pre><code>class UserService:
+    def __init__(self, user_repo: UserRepository):
+        self._user_repo = user_repo
+
+    async def create_user(self, user_data: UserCreate) -> User:
+        # Business logic here
+        return await self._user_repo.create(user_data)</code></pre>
+
+      <h2>Configuration Best Practices</h2>
+
+      <p>Centralize configuration in a dedicated module that handles environment variables, validation, and defaults:</p>
+
+      <pre><code>from pydantic import BaseSettings
+
+class Settings(BaseSettings):
+    database_url: str
+    redis_url: str = "redis://localhost:6379"
+    log_level: str = "INFO"
+
+    class Config:
+        env_file = ".env"
+
+settings = Settings()</code></pre>
+
+      <h2>Testing Strategy</h2>
+
+      <p>The structure naturally supports different testing approaches:</p>
+
+      <ul>
+        <li><strong>Unit tests</strong> for individual services and utilities</li>
+        <li><strong>Integration tests</strong> for repository and API layers</li>
+        <li><strong>End-to-end tests</strong> for complete user workflows</li>
+      </ul>
+
+      <p>This organization has served me well across multiple Python services, from small APIs to larger distributed systems. The key is starting with clear boundaries and evolving the structure as your needs grow.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Mehdi Ben Hamida • <a href="https://github.com/mehdibenhamida" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/syntax-highlighter.js"></script>
+</body>
+</html>

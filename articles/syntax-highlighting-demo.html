@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Syntax Highlighting Demo — Mehdi Ben Hamida</title>
+  <meta name="description" content="Demonstration of syntax highlighting features" />
+  <link rel="icon" href="../assets/img/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/prism-theme.css" />
+  <style>
+    .article-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem 0;
+    }
+    .article-meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .article-content {
+      max-width: 65ch;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .article-content h2 {
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .article-content p {
+      margin-bottom: 1.25rem;
+    }
+    .article-content code {
+      background: var(--bg-card);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    .article-content pre {
+      background: var(--bg-card);
+      padding: 1.5rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.2s var(--ease);
+    }
+    .back-link:hover {
+      color: var(--accent-2);
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <nav class="nav" aria-label="Primary">
+      <a class="logo" href="/">MBH</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="../index.html">About</a></li>
+        <li><a href="../articles.html">Articles</a></li>
+        <li><a href="../portfolio.html">Portfolio</a></li>
+        <li><a href="../books.html">Books</a></li>
+        <li><a href="../resume.html">Resume</a></li>
+        <li><a href="mailto:mehdi@example.com" rel="nofollow noopener">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="main-content">
+    <a href="../articles.html" class="back-link">← Back to Articles</a>
+
+    <article class="article-header">
+      <h1>Syntax Highlighting Demo</h1>
+      <p class="article-meta">Demo • Syntax • 2025</p>
+    </article>
+
+    <div class="article-content">
+      <p>This page demonstrates the automatic syntax highlighting feature for various programming languages.</p>
+
+      <h2>Python Code</h2>
+
+      <pre><code>from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from typing import Optional
+import asyncio
+
+app = FastAPI(title="Example API")
+
+class UserModel(BaseModel):
+    id: Optional[int] = None
+    name: str
+    email: str
+    is_active: bool = True
+
+@app.get("/")
+async def root():
+    """Welcome endpoint with async support."""
+    await asyncio.sleep(0.1)
+    return {"message": "Hello World", "status": "active"}
+
+@app.post("/users/", response_model=UserModel)
+async def create_user(user: UserModel):
+    if not user.name:
+        raise HTTPException(status_code=400, detail="Name is required")
+
+    # Simulate database save
+    user.id = 123
+    return user</code></pre>
+
+      <h2>JavaScript/TypeScript</h2>
+
+      <pre><code>interface ApiResponse<T> {
+  data: T;
+  status: 'success' | 'error';
+  message?: string;
+}
+
+class UserService {
+  private baseUrl: string;
+
+  constructor(baseUrl: string = '/api/v1') {
+    this.baseUrl = baseUrl;
+  }
+
+  async fetchUsers(): Promise<ApiResponse<User[]>> {
+    try {
+      const response = await fetch(`${this.baseUrl}/users`);
+      const data = await response.json();
+
+      return {
+        data: data.users,
+        status: 'success'
+      };
+    } catch (error) {
+      console.error('Failed to fetch users:', error);
+      return {
+        data: [],
+        status: 'error',
+        message: error.message
+      };
+    }
+  }
+}</code></pre>
+
+      <h2>Docker Configuration</h2>
+
+      <pre><code>FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code
+COPY src/ ./src/
+COPY config/ ./config/
+
+# Create non-root user
+RUN useradd --create-home --shell /bin/bash app
+USER app
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:8000/health || exit 1
+
+EXPOSE 8000
+CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]</code></pre>
+
+      <h2>SQL Queries</h2>
+
+      <pre><code>-- Create users table with constraints
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Insert sample data
+INSERT INTO users (name, email) VALUES
+    ('John Doe', 'john@example.com'),
+    ('Jane Smith', 'jane@example.com'),
+    ('Bob Johnson', 'bob@example.com');
+
+-- Complex query with joins and aggregation
+SELECT
+    u.name,
+    u.email,
+    COUNT(p.id) as post_count,
+    MAX(p.created_at) as last_post_date
+FROM users u
+LEFT JOIN posts p ON u.id = p.user_id
+WHERE u.created_at >= '2024-01-01'
+GROUP BY u.id, u.name, u.email
+HAVING COUNT(p.id) > 0
+ORDER BY post_count DESC, u.name ASC;</code></pre>
+
+      <h2>Bash Scripts</h2>
+
+      <pre><code>#!/bin/bash
+
+# Deploy script with error handling
+set -euo pipefail
+
+PROJECT_DIR="/opt/myapp"
+BACKUP_DIR="/opt/backups"
+SERVICE_NAME="myapp"
+
+log() {
+    echo "[$(date +'%Y-%m-%d %H:%M:%S')] $1"
+}
+
+create_backup() {
+    local backup_name="backup_$(date +'%Y%m%d_%H%M%S').tar.gz"
+    log "Creating backup: $backup_name"
+
+    tar -czf "$BACKUP_DIR/$backup_name" -C "$PROJECT_DIR" .
+
+    # Keep only last 5 backups
+    ls -t "$BACKUP_DIR"/backup_*.tar.gz | tail -n +6 | xargs -r rm
+}
+
+deploy_application() {
+    log "Stopping service: $SERVICE_NAME"
+    sudo systemctl stop "$SERVICE_NAME"
+
+    log "Updating application files"
+    rsync -av --delete ./dist/ "$PROJECT_DIR/"
+
+    log "Installing dependencies"
+    cd "$PROJECT_DIR"
+    pip install -r requirements.txt
+
+    log "Running database migrations"
+    python manage.py migrate
+
+    log "Starting service: $SERVICE_NAME"
+    sudo systemctl start "$SERVICE_NAME"
+    sudo systemctl status "$SERVICE_NAME"
+}
+
+main() {
+    log "Starting deployment process"
+    create_backup
+    deploy_application
+    log "Deployment completed successfully"
+}
+
+main "$@"</code></pre>
+
+      <h2>JSON Configuration</h2>
+
+      <pre><code>{
+  "name": "my-web-app",
+  "version": "1.0.0",
+  "description": "A modern web application with futuristic design",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "build": "webpack --mode=production",
+    "test": "jest --coverage",
+    "lint": "eslint src/ --ext .js,.ts"
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "cors": "^2.8.5",
+    "helmet": "^6.1.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.0",
+    "jest": "^29.0.0",
+    "eslint": "^8.0.0",
+    "webpack": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/my-web-app.git"
+  },
+  "keywords": ["web", "app", "futuristic", "modern"],
+  "author": "Mehdi Ben Hamida",
+  "license": "MIT"
+}</code></pre>
+
+      <h2>Features</h2>
+
+      <ul>
+        <li><strong>Automatic Detection</strong> - Language is automatically detected based on code patterns</li>
+        <li><strong>Futuristic Theme</strong> - Custom color scheme matching your website design</li>
+        <li><strong>Multiple Languages</strong> - Support for Python, JavaScript, TypeScript, SQL, Docker, Bash, JSON, CSS, and YAML</li>
+        <li><strong>Professional Fonts</strong> - Uses JetBrains Mono for optimal code readability</li>
+        <li><strong>Responsive Design</strong> - Works perfectly on all devices and screen sizes</li>
+        <li><strong>Language Labels</strong> - Shows detected language in the top-right corner</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Mehdi Ben Hamida • <a href="https://github.com/mehdibenhamida" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/syntax-highlighter.js"></script>
+</body>
+</html>

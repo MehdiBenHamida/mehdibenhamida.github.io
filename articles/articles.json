@@ -1,0 +1,52 @@
+[
+  {
+    "id": "syntax-highlighting-demo",
+    "title": "Syntax Highlighting Demo",
+    "subtitle": "Demo • Features • 2025",
+    "description": "Demonstration of automatic syntax highlighting for multiple programming languages.",
+    "cover": "placeholder.svg",
+    "published": "2025-01-16",
+    "status": "published",
+    "url": "syntax-highlighting-demo.html"
+  },
+  {
+    "id": "python-project-structure",
+    "title": "Practical Python Project Structure",
+    "subtitle": "Architecture \u2022 Python \u2022 2025",
+    "description": "Guidelines for structuring medium-sized Python services for clarity and maintainability.",
+    "cover": "python-structure.svg",
+    "published": "2025-01-15",
+    "status": "published",
+    "url": "python-project-structure.html"
+  },
+  {
+    "id": "observability-backend",
+    "title": "Observability for Backend Services",
+    "subtitle": "Monitoring \u2022 Logging \u2022 2025",
+    "description": "Setting up logging, metrics, and traces without overwhelming complexity.",
+    "cover": "observability.svg",
+    "published": "2025-01-10",
+    "status": "draft",
+    "url": "observability-backend.html"
+  },
+  {
+    "id": "fastapi-patterns",
+    "title": "FastAPI Patterns that Scale",
+    "subtitle": "FastAPI \u2022 APIs \u2022 2025",
+    "description": "Patterns for routers, dependencies, error handling, and testing.",
+    "cover": "fastapi-patterns.svg",
+    "published": "2025-01-05",
+    "status": "published",
+    "url": "fastapi-patterns.html"
+  },
+  {
+    "id": "docker-best-practices",
+    "title": "Docker Best Practices",
+    "subtitle": "DevOps • Containers • 2025",
+    "description": "Essential Docker patterns for development and production environments.",
+    "cover": "docker-best-practices.svg",
+    "published": "2025-12-19",
+    "status": "published",
+    "url": "docker-best-practices.html"
+  }
+]
