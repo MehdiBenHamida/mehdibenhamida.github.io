@@ -3,28 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio — Mehdi Ben Hamida</title>
-  <meta name="description" content="Selected projects by Mehdi Ben Hamida: Python services, tooling, and integrations." />
-  <link rel="icon" href="assets/img/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Portfolio | Mehdi Ben Hamida</title>
+  <meta
+    name="description"
+    content="Portfolio and project case studies from Mehdi Ben Hamida covering backend engineering, APIs, and architecture."
+  />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <script>(function(){try{var t=localStorage.getItem('theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){t='dark';}if(t){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header" role="banner">
-    <nav class="nav" aria-label="Primary">
-      <a class="logo" href="/">MBH</a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Primary">
+      <a class="brand" href="index.html">Mehdi Ben Hamida</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
-      <ul id="nav-menu" class="nav-menu">
+      <ul id="site-nav" class="nav-links">
         <li><a href="index.html">About</a></li>
         <li><a href="articles.html">Articles</a></li>
-        <li><a href="portfolio.html" aria-current="page">Portfolio</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
         <li><a href="books.html">Books</a></li>
         <li><a href="resume.html">Resume</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -32,31 +32,35 @@
     </nav>
   </header>
 
-  <main id="main" class="main-content">
-    <h1 class="section-title">Portfolio</h1>
-    <p class="card-meta">A curated selection of projects. More on <a href="https://github.com/mehdibenhamida" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+  <main id="main" class="page-shell page-section">
+    <section class="section-hero">
+      <p class="eyebrow">Portfolio</p>
+      <h1>Selected projects and engineering case studies.</h1>
+      <p class="lead">
+        These projects reflect the kinds of technical problems I enjoy solving:
+        platform reliability, API design, integration layers, migration work, and scalable systems.
+      </p>
+    </section>
 
-    <!-- Portfolio filters -->
-    <div class="portfolio-filters">
-      <button class="filter-btn active" onclick="portfolioLoader.showAllProjects(this)">All Projects</button>
-      <button class="filter-btn" onclick="portfolioLoader.showFeaturedOnly(this)">Featured</button>
-      <button class="filter-btn" onclick="portfolioLoader.filterByTechnology('Python', this)">Python</button>
-      <button class="filter-btn" onclick="portfolioLoader.filterByTechnology('FastAPI', this)">FastAPI</button>
-      <button class="filter-btn" onclick="portfolioLoader.filterByTechnology('Docker', this)">Docker</button>
-    </div>
-
-    <!-- Dynamic portfolio grid -->
-    <section class="portfolio-grid">
-      <!-- Projects will be loaded dynamically here -->
+    <section class="section-block">
+      <div class="section-heading split-heading">
+        <div>
+          <h2>Project list</h2>
+          <p class="section-copy">Each project page summarizes the context, contribution, and technical outcome.</p>
+        </div>
+      </div>
+      <div class="card-grid" data-collection="projects"></div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year"></span> Mehdi Ben Hamida • <a href="https://github.com/mehdibenhamida" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+    <div class="page-shell footer-inner">
+      <p>&copy; <span data-current-year></span> Mehdi Ben Hamida</p>
+      <a href="contact.html">Contact</a>
+    </div>
   </footer>
 
+  <script src="assets/js/site-data.js"></script>
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/portfolio-loader.js"></script>
 </body>
 </html>
-

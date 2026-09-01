@@ -3,78 +3,64 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Books — Mehdi Ben Hamida</title>
-  <meta name="description" content="Book recommendations by Mehdi Ben Hamida for software engineers and Python developers." />
-  <link rel="icon" href="assets/img/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Books | Mehdi Ben Hamida</title>
+  <meta
+    name="description"
+    content="Selected books recommended by Mehdi Ben Hamida for software architecture, data systems, and Python craftsmanship."
+  />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <script>(function(){try{var t=localStorage.getItem('theme');if(!t&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches){t='dark';}if(t){document.documentElement.setAttribute('data-theme',t);}}catch(e){}})();</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header" role="banner">
-    <nav class="nav" aria-label="Primary">
-      <a class="logo" href="/">MBH</a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Primary">
+      <a class="brand" href="index.html">Mehdi Ben Hamida</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
-      <ul id="nav-menu" class="nav-menu">
+      <ul id="site-nav" class="nav-links">
         <li><a href="index.html">About</a></li>
         <li><a href="articles.html">Articles</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="books.html" aria-current="page">Books</a></li>
+        <li><a href="books.html">Books</a></li>
         <li><a href="resume.html">Resume</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main id="main" class="main-content">
-    <h1 class="section-title">Books</h1>
-    <p class="card-meta">Recommendations that shaped my engineering approach.</p>
-    <section class="grid">
-      <article class="card book-card">
-        <div class="book-cover">
-          <img src="assets/img/covers/clean-architecture.svg" alt="Clean Architecture book cover" />
-        </div>
-        <div class="book-content">
-          <h2>Clean Architecture</h2>
-          <p class="card-meta">Robert C. Martin • Architecture • Principles</p>
-          <p>Pragmatic guidance on boundaries, testability, and resilient design. Essential reading for building maintainable systems.</p>
-        </div>
-      </article>
+  <main id="main" class="page-shell page-section">
+    <section class="section-hero">
+      <p class="eyebrow">Books</p>
+      <h1>Books that continue to influence how I build software.</h1>
+      <p class="lead">
+        A short professional reading list focused on architecture, distributed systems,
+        and software craftsmanship.
+      </p>
+    </section>
 
-      <article class="card book-card">
-        <div class="book-cover">
-          <img src="assets/img/covers/designing-data-intensive.svg" alt="Designing Data-Intensive Applications book cover" />
+    <section class="section-block">
+      <div class="section-heading split-heading">
+        <div>
+          <h2>Reading list</h2>
+          <p class="section-copy">Each card links to the publisher or official book page.</p>
         </div>
-        <div class="book-content">
-          <h2>Designing Data-Intensive Applications</h2>
-          <p class="card-meta">Martin Kleppmann • Systems • Data • Reliability</p>
-          <p>A thorough exploration of data systems, scalability, and trade-offs. Deep dive into distributed systems fundamentals.</p>
-        </div>
-      </article>
-
-      <article class="card book-card">
-        <div class="book-cover">
-          <img src="assets/img/covers/effective-python.svg" alt="Effective Python book cover" />
-        </div>
-        <div class="book-content">
-          <h2>Effective Python</h2>
-          <p class="card-meta">Brett Slatkin • Python • Best Practices</p>
-          <p>Actionable tips to write clearer, faster, and more maintainable Python. 90 specific ways to write better Python.</p>
-        </div>
-      </article>
+      </div>
+      <div class="card-grid" data-collection="books"></div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year"></span> Mehdi Ben Hamida • <a href="https://github.com/mehdibenhamida" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+    <div class="page-shell footer-inner">
+      <p>&copy; <span data-current-year></span> Mehdi Ben Hamida</p>
+      <a href="contact.html">Contact</a>
+    </div>
   </footer>
 
+  <script src="assets/js/site-data.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
