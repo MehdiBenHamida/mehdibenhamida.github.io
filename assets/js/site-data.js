@@ -6,7 +6,10 @@ window.siteData = {
       description: "A practical guide to organizing routers, dependencies, validation, and error handling as services grow.",
       tags: ["FastAPI", "Python", "APIs"],
       url: "articles/fastapi-patterns.html",
-      linkLabel: "Read article"
+      linkLabel: "Read article",
+      cover: "assets/img/covers/fastapi-patterns.svg",
+      date: "2025-05-12",
+      readTime: "6 min read"
     },
     {
       title: "Practical Python Project Structure",
@@ -14,7 +17,10 @@ window.siteData = {
       description: "A clear structure for medium-sized Python services that keeps domain logic, infrastructure, and tests aligned.",
       tags: ["Python", "Architecture", "Testing"],
       url: "articles/python-project-structure.html",
-      linkLabel: "Read article"
+      linkLabel: "Read article",
+      cover: "assets/img/covers/python-project-structure.svg",
+      date: "2025-04-03",
+      readTime: "5 min read"
     },
     {
       title: "Observability for Backend Services",
@@ -22,7 +28,10 @@ window.siteData = {
       description: "How to combine logs, metrics, and traces so production behavior becomes easier to understand and improve.",
       tags: ["Observability", "Logging", "Tracing"],
       url: "articles/observability-backend.html",
-      linkLabel: "Read article"
+      linkLabel: "Read article",
+      cover: "assets/img/covers/observability-backend.svg",
+      date: "2025-02-18",
+      readTime: "5 min read"
     }
   ],
   projects: [

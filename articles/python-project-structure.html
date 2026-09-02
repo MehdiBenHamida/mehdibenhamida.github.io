@@ -33,34 +33,62 @@
   </header>
 
   <main id="main" class="page-shell page-section">
-    <article class="resume-sheet article-page">
-      <p class="eyebrow">Article</p>
-      <h1>Practical Python Project Structure</h1>
-      <p class="lead">
-        Project structure affects how quickly a team can understand, test, and change a service.
-        Clear boundaries reduce accidental coupling and make long-term maintenance far less costly.
-      </p>
-      <section class="resume-section">
-        <h3>Start from responsibilities</h3>
-        <p>
-          A useful structure separates domain logic from transport concerns, infrastructure, and
-          configuration. That keeps the core of the application portable and easier to test.
+    <article class="article">
+      <header class="article-header">
+        <a class="article-back" href="../articles.html">&larr; Articles</a>
+        <ul class="article-tags">
+          <li>Python</li>
+          <li>Architecture</li>
+          <li>Testing</li>
+        </ul>
+        <h1>Practical Python Project Structure</h1>
+        <p class="article-lead">
+          Project structure affects how quickly a team can understand, test, and change a service.
+          Clear boundaries reduce accidental coupling and make long-term maintenance far less costly.
         </p>
-      </section>
-      <section class="resume-section">
-        <h3>Keep modules predictable</h3>
-        <p>
-          Teams move faster when every service uses similar conventions for routers, models,
-          repositories, settings, and tests. Predictability matters as much as elegance.
-        </p>
-      </section>
-      <section class="resume-section">
-        <h3>Avoid framework-first design</h3>
-        <p>
-          Frameworks are valuable, but they should not define the whole shape of the project.
-          Organizing around the domain first makes future migrations and feature work far simpler.
-        </p>
-      </section>
+        <div class="article-byline">
+          <img class="article-avatar" src="../assets/img/profile-picture.jpg" alt="Mehdi Ben Hamida" width="48" height="48" />
+          <div>
+            <p class="article-author">Mehdi Ben Hamida</p>
+            <p class="article-byline-meta">
+              <time datetime="2025-04-03">Apr 3, 2025</time>
+              <span class="dot">·</span> 5 min read
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <figure class="article-cover">
+        <img src="../assets/img/covers/python-project-structure.svg" alt="Abstract cover illustration for Practical Python Project Structure" />
+      </figure>
+
+      <div class="article-body">
+        <section>
+          <h2>Start from responsibilities</h2>
+          <p>
+            A useful structure separates domain logic from transport concerns, infrastructure, and
+            configuration. That keeps the core of the application portable and easier to test.
+          </p>
+        </section>
+        <section>
+          <h2>Keep modules predictable</h2>
+          <p>
+            Teams move faster when every service uses similar conventions for routers, models,
+            repositories, settings, and tests. Predictability matters as much as elegance.
+          </p>
+        </section>
+        <section>
+          <h2>Avoid framework-first design</h2>
+          <p>
+            Frameworks are valuable, but they should not define the whole shape of the project.
+            Organizing around the domain first makes future migrations and feature work far simpler.
+          </p>
+        </section>
+      </div>
+
+      <footer class="article-footer">
+        <a class="button button-secondary" href="../articles.html">&larr; Back to all articles</a>
+      </footer>
     </article>
   </main>
 

@@ -167,8 +167,26 @@
       return "<li>" + escapeHtml(tag) + "</li>";
     }).join("");
 
+    var cover = item.cover
+      ? '<div class="content-card-cover"><img src="' + escapeAttribute(item.cover) +
+        '" alt="" loading="lazy" /></div>'
+      : "";
+
+    var footerMeta = "";
+    if (item.date || item.readTime) {
+      var parts = [];
+      if (item.date) {
+        parts.push('<time datetime="' + escapeAttribute(item.date) + '">' + escapeHtml(formatDate(item.date)) + "</time>");
+      }
+      if (item.readTime) {
+        parts.push(escapeHtml(item.readTime));
+      }
+      footerMeta = '<span class="content-card-date">' + parts.join(' <span class="dot">·</span> ') + "</span>";
+    }
+
     return [
       '<article class="content-card">',
+      cover,
       '<p class="content-card-meta">' + escapeHtml(item.meta) + "</p>",
       "<div>",
       "<h3>" + escapeHtml(item.title) + "</h3>",
@@ -177,9 +195,18 @@
       tags ? '<ul class="tag-row">' + tags + "</ul>" : "",
       '<div class="content-card-footer">',
       '<a href="' + escapeAttribute(item.url) + '"' + target + ">" + escapeHtml(item.linkLabel) + "</a>",
+      footerMeta,
       "</div>",
       "</article>"
     ].join("");
+  }
+
+  function formatDate(value) {
+    var parsed = new Date(value);
+    if (isNaN(parsed.getTime())) {
+      return value;
+    }
+    return parsed.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
   }
 
   function escapeHtml(value) {

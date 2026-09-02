@@ -33,46 +33,74 @@
   </header>
 
   <main id="main" class="page-shell page-section">
-    <article class="resume-sheet article-page">
-      <p class="eyebrow">Article</p>
-      <h1>FastAPI Patterns that Scale</h1>
-      <p class="lead">
-        FastAPI makes it easy to ship quickly. The challenge starts later, when the API becomes
-        large enough that routing, dependencies, error handling, and validation need stronger
-        structure to stay readable.
-      </p>
-      <section class="resume-section">
-        <h3>1. Keep routing thin</h3>
-        <p>
-          Route handlers should remain focused on request and response concerns. Validation,
-          authorization, and orchestration should be delegated so that each endpoint remains short
-          and predictable.
+    <article class="article">
+      <header class="article-header">
+        <a class="article-back" href="../articles.html">&larr; Articles</a>
+        <ul class="article-tags">
+          <li>FastAPI</li>
+          <li>Python</li>
+          <li>APIs</li>
+        </ul>
+        <h1>FastAPI Patterns that Scale</h1>
+        <p class="article-lead">
+          FastAPI makes it easy to ship quickly. The challenge starts later, when the API becomes
+          large enough that routing, dependencies, error handling, and validation need stronger
+          structure to stay readable.
         </p>
-      </section>
-      <section class="resume-section">
-        <h3>2. Treat dependencies as boundaries</h3>
-        <p>
-          Dependency injection works best when it exposes explicit boundaries: database sessions,
-          authenticated users, settings, or service objects. Small, composable dependencies keep
-          handlers easy to test and reason about.
-        </p>
-      </section>
-      <section class="resume-section">
-        <h3>3. Standardize errors early</h3>
-        <p>
-          Error handling should not be scattered across endpoints. A consistent application-level
-          strategy for domain errors, validation failures, and infrastructure exceptions makes
-          client behavior more reliable and the codebase easier to evolve.
-        </p>
-      </section>
-      <section class="resume-section">
-        <h3>4. Let tests follow architecture</h3>
-        <p>
-          As services grow, tests should mirror the boundaries of the application. Router tests,
-          service tests, and integration tests each have a distinct role. That separation keeps the
-          suite faster and far easier to maintain.
-        </p>
-      </section>
+        <div class="article-byline">
+          <img class="article-avatar" src="../assets/img/profile-picture.jpg" alt="Mehdi Ben Hamida" width="48" height="48" />
+          <div>
+            <p class="article-author">Mehdi Ben Hamida</p>
+            <p class="article-byline-meta">
+              <time datetime="2025-05-12">May 12, 2025</time>
+              <span class="dot">·</span> 6 min read
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <figure class="article-cover">
+        <img src="../assets/img/covers/fastapi-patterns.svg" alt="Abstract cover illustration for FastAPI Patterns that Scale" />
+      </figure>
+
+      <div class="article-body">
+        <section>
+          <h2>1. Keep routing thin</h2>
+          <p>
+            Route handlers should remain focused on request and response concerns. Validation,
+            authorization, and orchestration should be delegated so that each endpoint remains short
+            and predictable.
+          </p>
+        </section>
+        <section>
+          <h2>2. Treat dependencies as boundaries</h2>
+          <p>
+            Dependency injection works best when it exposes explicit boundaries: database sessions,
+            authenticated users, settings, or service objects. Small, composable dependencies keep
+            handlers easy to test and reason about.
+          </p>
+        </section>
+        <section>
+          <h2>3. Standardize errors early</h2>
+          <p>
+            Error handling should not be scattered across endpoints. A consistent application-level
+            strategy for domain errors, validation failures, and infrastructure exceptions makes
+            client behavior more reliable and the codebase easier to evolve.
+          </p>
+        </section>
+        <section>
+          <h2>4. Let tests follow architecture</h2>
+          <p>
+            As services grow, tests should mirror the boundaries of the application. Router tests,
+            service tests, and integration tests each have a distinct role. That separation keeps the
+            suite faster and far easier to maintain.
+          </p>
+        </section>
+      </div>
+
+      <footer class="article-footer">
+        <a class="button button-secondary" href="../articles.html">&larr; Back to all articles</a>
+      </footer>
     </article>
   </main>
 

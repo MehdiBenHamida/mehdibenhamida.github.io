@@ -562,6 +562,26 @@ button,
   gap: 1rem;
 }
 
+.content-card-cover {
+  margin: -1.6rem -1.6rem 0.4rem;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-top-left-radius: var(--radius-lg);
+  border-top-right-radius: var(--radius-lg);
+  background: var(--surface-2);
+}
+
+.content-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+
+.content-card:hover .content-card-cover img {
+  transform: scale(1.04);
+}
+
 .content-card-meta,
 .contact-label {
   color: var(--accent-ink);
@@ -601,10 +621,24 @@ button,
   margin-top: auto;
   padding-top: 1rem;
   border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .content-card-footer a {
   font-weight: 600;
+}
+
+.content-card-date {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.content-card-date .dot {
+  opacity: 0.6;
 }
 
 .contact-label {
@@ -653,6 +687,194 @@ button,
 .article-page p {
   color: var(--ink-soft);
   line-height: 1.8;
+}
+
+/* ---------------------------------------------------------------------------
+   Medium-style article reading page
+--------------------------------------------------------------------------- */
+.article {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.article-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.article-back:hover,
+.article-back:focus-visible {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.article-header {
+  margin-bottom: 0.5rem;
+}
+
+.article-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.article-tags li {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+  border-radius: 999px;
+}
+
+.article-header h1 {
+  margin: 1.1rem 0 0;
+  font-size: clamp(2.2rem, 5.2vw, 3.1rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.article-lead {
+  margin: 1.15rem 0 0;
+  max-width: none;
+  font-size: clamp(1.15rem, 2.4vw, 1.35rem);
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.article-byline {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 1.9rem;
+  padding-bottom: 1.9rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.article-avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow-sm);
+}
+
+.article-author {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: var(--ink);
+}
+
+.article-byline-meta {
+  margin: 0.2rem 0 0;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.article-byline-meta .dot {
+  margin: 0 0.4rem;
+  opacity: 0.6;
+}
+
+.article-cover {
+  margin: 2.25rem 0 2.75rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  aspect-ratio: 16 / 8;
+  background: var(--surface-2);
+}
+
+.article-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.article-cover figcaption {
+  padding: 0.75rem 1rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.article-body {
+  font-size: 1.18rem;
+  line-height: 1.85;
+  color: var(--ink-soft);
+}
+
+.article-body > section + section {
+  margin-top: 2.4rem;
+}
+
+.article-body h2 {
+  margin: 0 0 0.9rem;
+  font-size: clamp(1.5rem, 3.2vw, 1.95rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.article-body p {
+  margin: 0 0 1.3rem;
+}
+
+.article-body p:last-child {
+  margin-bottom: 0;
+}
+
+.article-body a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.article-body strong {
+  color: var(--ink);
+}
+
+.article-body code {
+  padding: 0.15em 0.4em;
+  font-family: "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.88em;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.article-body blockquote {
+  margin: 1.75rem 0;
+  padding: 0.4rem 0 0.4rem 1.4rem;
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+  font-style: italic;
+  font-size: 1.22rem;
+}
+
+.article-footer {
+  margin-top: 3.25rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.article-footer .article-share {
+  display: flex;
+  gap: 0.6rem;
 }
 
 /* ---------------------------------------------------------------------------
@@ -1006,6 +1228,15 @@ code {
 
   .article-page {
     padding: 1.6rem;
+  }
+
+  .article-cover {
+    aspect-ratio: 3 / 2;
+    margin: 1.75rem 0 2rem;
+  }
+
+  .article-body {
+    font-size: 1.08rem;
   }
 
   .hero,

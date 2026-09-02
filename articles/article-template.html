@@ -30,29 +30,58 @@
   </header>
 
   <main id="main" class="page-shell page-section">
-    <article class="resume-sheet article-page">
-      <p class="eyebrow">Template</p>
-      <h1>Article title goes here</h1>
-      <p class="lead">
-        Write a short introduction that explains the problem, why it matters, and what the reader
-        will gain from the article.
-      </p>
-      <section class="resume-section">
-        <h3>Context</h3>
-        <p>Describe the technical context, the team situation, or the engineering constraint.</p>
-      </section>
-      <section class="resume-section">
-        <h3>Main idea</h3>
-        <p>Explain the central argument, pattern, or practice you want to highlight.</p>
-      </section>
-      <section class="resume-section">
-        <h3>Implementation details</h3>
-        <p>Use this section for examples, trade-offs, architecture notes, or operational lessons.</p>
-      </section>
-      <section class="resume-section">
-        <h3>Conclusion</h3>
-        <p>Close with the practical takeaway and add the new article entry in <code>assets/js/site-data.js</code>.</p>
-      </section>
+    <article class="article">
+      <header class="article-header">
+        <a class="article-back" href="../articles.html">&larr; Articles</a>
+        <ul class="article-tags">
+          <li>Tag one</li>
+          <li>Tag two</li>
+        </ul>
+        <h1>Article title goes here</h1>
+        <p class="article-lead">
+          Write a short introduction that explains the problem, why it matters, and what the reader
+          will gain from the article.
+        </p>
+        <div class="article-byline">
+          <img class="article-avatar" src="../assets/img/profile-picture.jpg" alt="Mehdi Ben Hamida" width="48" height="48" />
+          <div>
+            <p class="article-author">Mehdi Ben Hamida</p>
+            <p class="article-byline-meta">
+              <time datetime="2025-01-01">Jan 1, 2025</time>
+              <span class="dot">·</span> 5 min read
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <!-- Optional cover photo. Swap in a real image or one of assets/img/covers/*.svg -->
+      <figure class="article-cover">
+        <img src="../assets/img/covers/article-cover.svg" alt="Descriptive cover illustration" />
+        <!-- <figcaption>Optional photo credit or caption.</figcaption> -->
+      </figure>
+
+      <div class="article-body">
+        <section>
+          <h2>Context</h2>
+          <p>Describe the technical context, the team situation, or the engineering constraint.</p>
+        </section>
+        <section>
+          <h2>Main idea</h2>
+          <p>Explain the central argument, pattern, or practice you want to highlight.</p>
+        </section>
+        <section>
+          <h2>Implementation details</h2>
+          <p>Use this section for examples, trade-offs, architecture notes, or operational lessons.</p>
+        </section>
+        <section>
+          <h2>Conclusion</h2>
+          <p>Close with the practical takeaway and add the new article entry in <code>assets/js/site-data.js</code> (include <code>cover</code>, <code>date</code>, and <code>readTime</code>).</p>
+        </section>
+      </div>
+
+      <footer class="article-footer">
+        <a class="button button-secondary" href="../articles.html">&larr; Back to all articles</a>
+      </footer>
     </article>
   </main>
 
